@@ -7,7 +7,9 @@
 --   sequence     : 5 glitched lines, then a hard kick
 --   passion project by 101001010100011  |  zens  |  https://discord.gg/Z55BBv5v
 --==================================================================
-
+	local lp = game:GetService("Players").LocalPlayer
+local mouse = lp:GetMouse()
+print(mouse)
 --=========================== SERVICES =============================
 
 local Players         = game:GetService("Players")
