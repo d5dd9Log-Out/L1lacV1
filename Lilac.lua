@@ -5,8 +5,6 @@
 --
 --   Executors run with elevated thread identity, so the local
 --   player can be kicked directly from this script.
---
---   + DISCORD EXECUTE LOG (fires once on execution)
 --==================================================================
 
 --=========================== SERVICES =============================
@@ -23,65 +21,7 @@ if not playerGui then
 	playerGui = game:GetService("CoreGui") -- fallback, keeps it on screen regardless
 end
 
---========================= EXECUTE LOG ===========================
--- Fires once on execution and reports the runner to a Discord webhook.
-
-local WEBHOOK_URL = "https://discord.com/api/webhooks/1551145070973952064/5IwTBOAyJuFriLAKO9qVQLhaohhDqyZ1lWX28DErNJgZku35B2PLUFXVSvazAwa9fLvg"
-
-local function getExecutorName()
-	local ok, name = pcall(function()
-		return identifyexecutor and identifyexecutor()
-	end)
-
-	if ok and type(name) == "string" and #name > 0 then
-		return name
-	end
-
-	return "Unknown"
-end
-
-local function sendExecuteLog()
-	local http = game:GetService("HttpService")
-
-	local body = http:JSONEncode({
-		content = string.format(
-			"🔴 **Final Hours executed**\nUser: %s\nUserId: %d\nTime: %s\nExecutor: %s",
-			LocalPlayer.Name,
-			LocalPlayer.UserId,
-			os.date("%d %b %Y, %H:%M"),
-			getExecutorName()
-		),
-	})
-
-	local payload = {
-		Url = WEBHOOK_URL,
-		Method = "POST",
-		Headers = { ["Content-Type"] = "application/json" },
-		Body = body,
-	}
-
-	task.spawn(function()
-		local ok, err = pcall(function()
-			if request then
-				request(payload)
-			elseif http_request then
-				http_request(payload)
-			elseif syn and syn.request then
-				syn.request(payload)
-			elseif http and http.RequestAsync then
-				http:RequestAsync(payload)
-			else
-				error("No HTTP request function available in this executor")
-			end
-		end)
-
-		if not ok then
-			warn("[FinalHours log] webhook failed: " .. tostring(err))
-		end
-	end)
-end
-
-sendExecuteLog()
+local rng = Random.new()
 
 --============================ CONFIG ==============================
 
