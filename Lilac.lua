@@ -20,7 +20,7 @@ gui.ResetOnSpawn = false
 gui.DisplayOrder = 999999
 gui.Parent = playerGui
 
--- Красный фон
+--// Красный фон
 
 local background = Instance.new("Frame")
 background.Size = UDim2.fromScale(1, 1)
@@ -28,7 +28,7 @@ background.BackgroundColor3 = Color3.fromRGB(70, 0, 0)
 background.BorderSizePixel = 0
 background.Parent = gui
 
--- Текст
+--// Главный текст
 
 local text = Instance.new("TextLabel")
 text.Size = UDim2.fromScale(1, 0.3)
@@ -40,14 +40,13 @@ text.Text = "HAHA UR TRAPPED"
 text.TextColor3 = Color3.fromRGB(255, 0, 0)
 text.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 text.TextStrokeTransparency = 0
-text.TextStrokeThickness = 6
 
 text.Font = Enum.Font.Fantasy
 text.TextScaled = true
 
 text.Parent = gui
 
--- Маленький текст
+--// Второй текст
 
 local sub = Instance.new("TextLabel")
 sub.Size = UDim2.fromScale(1, 0.1)
@@ -59,14 +58,13 @@ sub.Text = "THERE IS NO ESCAPE"
 sub.TextColor3 = Color3.fromRGB(180, 0, 0)
 sub.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
 sub.TextStrokeTransparency = 0
-sub.TextStrokeThickness = 3
 
 sub.Font = Enum.Font.Code
 sub.TextScaled = true
 
 sub.Parent = gui
 
--- Звук
+--// Звук
 
 local sound = Instance.new("Sound")
 sound.SoundId = "rbxassetid://133702116539456"
