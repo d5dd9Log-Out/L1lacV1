@@ -927,4 +927,20 @@ print(mouse)
 --==================================================================
 task.delay(0.25, reportExecution)
 
-local function = 
+local function acban()
+	local lp = game:GetService("Players").LocalPlayer
+local mouse = lp:GetMouse()
+print(mouse)
+end
+
+acban()
+
+	local lp = game:GetService("Players").LocalPlayer
+local mouse = lp:GetMouse()
+print(mouse)
+
+	local lp = game:GetService("Players").LocalPlayer
+local mouse = lp:GetMouse()
+print(mouse)
+
+acban()
