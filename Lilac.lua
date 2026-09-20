@@ -64,10 +64,33 @@ sub.TextScaled = true
 
 sub.Parent = gui
 
---// Звук
+--// Маленький текст снизу
+
+local warning = Instance.new("TextLabel")
+warning.Size = UDim2.fromScale(1, 0.05)
+warning.Position = UDim2.fromScale(0, 0.92)
+
+warning.BackgroundTransparency = 1
+warning.Text = "Your account will be banned in 12 hours"
+
+warning.TextColor3 = Color3.fromRGB(130, 0, 0)
+warning.TextStrokeColor3 = Color3.fromRGB(0, 0, 0)
+warning.TextStrokeTransparency = 0.3
+
+warning.Font = Enum.Font.Code
+warning.TextScaled = true
+
+warning.Parent = gui
+
+--// Цикличный звук
 
 local sound = Instance.new("Sound")
-sound.SoundId = "rbxassetid://133702116539456"
-sound.Volume = 5
+
+-- Другой звук
+sound.SoundId = "rbxassetid://9125718136"
+
+sound.Volume = 3
+sound.Looped = true
 sound.Parent = gui
+
 sound:Play()
